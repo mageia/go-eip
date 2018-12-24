@@ -1,13 +1,13 @@
 package go_eip
 
-type Client interface {
-	Read()
-	Write()
-	MultiRead()
-	GetPLCTime()
-	SetPLCTime()
-	GetTagList()
-	Discover()
-	Close()
-}
+import "time"
 
+type Client interface {
+	Read(string, int) (interface{}, error)
+	Write(string, interface{}) error
+	MultiRead()
+	GetPLCTime() (time.Time, error)
+	SetPLCTime(time.Time) error
+	GetTagList() ([]Tag, error)
+	Discover()
+}

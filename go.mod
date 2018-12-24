@@ -1,1 +1,1 @@
-module go-logix
+module go-eip
