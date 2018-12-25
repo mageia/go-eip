@@ -1,1 +1,1 @@
-module go-eip
+module go_eip
