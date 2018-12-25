@@ -13,13 +13,13 @@ const (
 )
 
 func TestTCPClient(t *testing.T) {
-	handler := go_eip.NewTCPClientHandler(tcpDevice, 0)
+	handler := go_eip.NewTCPClientHandler(tcpDevice)
 	handler.Timeout = 5 * time.Second
 	handler.IdleTimeout = 180 * time.Second
 	handler.Logger = log.New(os.Stdout, "tcp", log.LstdFlags)
 	handler.Connect()
-	defer handler.Close()
 
-	client := go_eip.NewClient(handler)
+	client := go_eip.NewClient(handler, 0)
 	ClientTestAll(t, client)
+	defer client.Stop()
 }
