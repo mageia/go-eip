@@ -1,7 +1,7 @@
 package test
 
 import (
-	"go-eip"
+	"go_eip"
 	"log"
 	"runtime"
 	"strings"
